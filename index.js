@@ -10,7 +10,7 @@ import * as puppeteer from 'puppeteer';
 const app = express();
 
 const host = 'localhost';
-const port = '3001';
+const port = 3000;
 
 app.set('port', port);
 
@@ -28,7 +28,7 @@ process.on('uncaughtException', (err) => {
 const server = createServer(app);
 
 
-server.listen(port, host);
+server.listen(3000);
 console.log(`Server listening on ${host}:${port}`);
 
 app.get('/', (req, res) => {
