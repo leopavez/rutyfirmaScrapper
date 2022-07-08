@@ -9,8 +9,7 @@ import * as puppeteer from 'puppeteer';
 
 const app = express();
 
-const host = 'localhost';
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 app.set('port', port);
 
@@ -28,8 +27,9 @@ process.on('uncaughtException', (err) => {
 const server = createServer(app);
 
 
-server.listen(3000);
-console.log(`Server listening on ${host}:${port}`);
+server.listen(process.env.PORT || 3000, () => {
+    console.log(`Server is running on port ${port}`);
+});
 
 app.get('/', (req, res) => {
   res.send({message: 'Scrap Api is running'});
